@@ -1,7 +1,7 @@
 "use client"
 
 import { PRODUCT_CATEGORIES } from "@/config";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NavItem from "./NavItem";
 
 const NavItems = () => {
@@ -9,6 +9,8 @@ const NavItems = () => {
     const [activeIndex, setActiveIndex] = useState<null | number>(null)
    
     const isAnyOpen = activeIndex !== null
+    
+    const navRef = useRef<HTMLDivElement | null>(null)
 
     return (
         <div className='flex gap-4 h-full'>
