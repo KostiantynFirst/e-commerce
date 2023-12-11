@@ -1,5 +1,6 @@
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
+import { Icons } from "./Icons";
 
 
 const Navbar = () => {
