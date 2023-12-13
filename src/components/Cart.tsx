@@ -11,6 +11,7 @@ import { format } from "util";
 const Cart = () => {
 
     const itemCount = 1; 
+    const fee = 1;
 
     return <Sheet>
         <SheetTrigger className="group -m-2 items-center p-2">
@@ -49,10 +50,20 @@ const Cart = () => {
                     Transaction Fee
                   </span>
                   <span>
-                    {formatPrice(1)}
+                    {formatPrice(fee)}
                   </span>
+                  </div>
 
-                </div>
+                  <div className='flex'>
+                  <span className='flex-1'>
+                    Total
+                  </span>
+                  <span>
+                    {formatPrice(fee)}
+                  </span> 
+                  </div>
+
+
                </div>
               </div>
             </>
