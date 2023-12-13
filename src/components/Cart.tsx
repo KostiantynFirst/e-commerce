@@ -9,6 +9,7 @@ import { formatPrice } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const Cart = () => {
 
@@ -96,7 +97,7 @@ const Cart = () => {
               <Image
                 src='/hippo-empty-cart.png'
                 fill
-                alt='empty shopping cart hippo'
+                alt='empty shopping cart'
               />
             </div>
             <div className='text-xl font-semibold'>
