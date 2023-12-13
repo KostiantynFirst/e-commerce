@@ -1,12 +1,14 @@
 "use client"
 
 import { ShoppingCart } from "lucide-react";
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "./ui/sheet";
 
 import { Separator } from "./ui/separator";
 
 import { formatPrice } from "@/lib/utils";
-import { format } from "util";
+import { buttonVariants } from "./ui/button";
+
+import Link from "next/link";
 
 const Cart = () => {
 
@@ -61,18 +63,10 @@ const Cart = () => {
                   <span>
                     {formatPrice(fee)}
                   </span> 
-                  </div>
-
-
-               </div>
+                </div>
               </div>
-            </>
-         ) : (
-            <div></div>
-         )}
 
-              
-              {/* <SheetFooter>
+              <SheetFooter>
                 <SheetTrigger asChild>
                   <Link
                     href='/cart'
@@ -84,6 +78,15 @@ const Cart = () => {
                 </SheetTrigger>
               </SheetFooter>
             </div>
+            </>
+         ) : (
+            <div></div>
+         )}
+
+              
+
+              
+       {/*    </div>
           </>
         ) : (
           <div className='flex h-full flex-col items-center justify-center space-y-1'>
