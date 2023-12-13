@@ -5,6 +5,9 @@ import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "./ui
 
 import { Separator } from "./ui/separator";
 
+import { formatPrice } from "@/lib/utils";
+import { format } from "util";
+
 const Cart = () => {
 
     const itemCount = 1; 
@@ -45,7 +48,10 @@ const Cart = () => {
                   <span className='flex-1'>
                     Transaction Fee
                   </span>
-                  <span>1</span>
+                  <span>
+                    {formatPrice(1)}
+                  </span>
+
                 </div>
                </div>
               </div>
