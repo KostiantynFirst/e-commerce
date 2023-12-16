@@ -9,22 +9,17 @@ import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { cn } from "@/lib/utils"
 import { zodResolver } from "@hookform/resolvers/zod"
-
-import { z } from 'zod'
-
+import { AuthCredentialsValidator, TAuthCredentialsValidator } from "@/lib/validators/account-credentials-validator"
 
 const Page = () => {
 
-  const AuthCredentialsValidator = z.object({
-    email: z.string().email(),
-    password: z.string().min(8, {message: "Password must be at least 8 characters"})
-  })
-
-  type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>
-
-  const { register, handleSubmit, formState: {errors} } = useForm<TAuthCredentialsValidator>({
+    const { register, handleSubmit, formState: {errors} } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   })
+
+  const onSubmit = ({email, password}: TAuthCredentialsValidator) => {
+    // send data to the server
+  }
 
     return (
       <>
@@ -48,13 +43,14 @@ const Page = () => {
             </div>
 
             <div className='grid gap-6'>
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className='grid gap-2'>
                     <div className='grid gap-1 py-2'>
                       <Label htmlFor='email'>Email</Label>
                       <Input
+                      {...register("email")}
                         className={cn({
-                          'focus-visible:ring-red-500': true
+                          'focus-visible:ring-red-500': errors.email,
                         })}
                         placeholder='you@example.com'
                       />
@@ -62,8 +58,9 @@ const Page = () => {
                     <div className='grid gap-1 py-2'>
                       <Label htmlFor='password'>Password</Label>
                       <Input
+                      {...register("password")}
                         className={cn({
-                          'focus-visible:ring-red-500': true
+                          'focus-visible:ring-red-500': errors.password,
                         })}
                         placeholder='Password'
                       />
