@@ -76,40 +76,8 @@ const Page = () => {
       </div>
     </>
     )
-
-    
-              
+         
            
 }
 
 export default Page
-
-
-  {/*         
-    
-
-    
-                    <div className='grid gap-1 py-2'>
-                      <Label htmlFor='password'>Password</Label>
-                      <Input
-                        {...register('password')}
-                        type='password'
-                        className={cn({
-                          'focus-visible:ring-red-500':
-                            errors.password,
-                        })}
-                        placeholder='Password'
-                      />
-                      {errors?.password && (
-                        <p className='text-sm text-red-500'>
-                          {errors.password.message}
-                        </p>
-                      )}
-                    </div>
-    
-                    <Button>Sign up</Button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div> */}
