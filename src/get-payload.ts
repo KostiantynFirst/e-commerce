@@ -47,8 +47,8 @@ dotenv.config({
       cached.promise = payload.init({
         email: {
           transport: transporter,
-          fromAddress: 'onboarding@resend.com',
-          fromName: 'DigitalCommerce',
+          fromAddress: 'hello@joshtriedcoding.com',
+          fromName: 'DigitalMarket',
         },
         secret: process.env.PAYLOAD_SECRET,
         local: initOptions?.express ? false : true,
