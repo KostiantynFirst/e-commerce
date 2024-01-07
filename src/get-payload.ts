@@ -6,7 +6,7 @@ import { Payload } from "payload"
 
 dotenv.config({
     path: path.resolve(__dirname, '../.env'),
-  })
+  })  
   
 //   const transporter = nodemailer.createTransport({
 //     host: 'smtp.resend.com',

@@ -3,7 +3,7 @@
 import { Icons } from "@/components/Icons"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@radix-ui/react-label"
+import { Label } from "@/components/ui/label"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
@@ -18,12 +18,16 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   })
 
-  const {data} = trpc.anyApiRoute.useQuery()
-  console.log(data)
+  // const { data } = trpc.anyApiRoute.useQuery()
+  // console.log(data)
+
+  const {mutate, isLoading} = trpc.auth.createPayloadUser.useMutation({
+
+  })
 
 
   const onSubmit = ({email, password}: TAuthCredentialsValidator) => {
-    // send data to the server
+    mutate({email, password})
   }
 
     return (
@@ -64,6 +68,7 @@ const Page = () => {
                       <Label htmlFor='password'>Password</Label>
                       <Input
                       {...register("password")}
+                      type="password"
                         className={cn({
                           'focus-visible:ring-red-500': errors.password,
                         })}

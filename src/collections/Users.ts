@@ -65,9 +65,9 @@ access: {
       name: 'role',
       defaultValue: 'user',
       required: true,
-      admin: {
-        condition: () => false,
-      },
+      // admin: {
+      //   condition: () => false,
+      // },
       type: 'select',
       options: [
         { label: 'Admin', value: 'admin' },
